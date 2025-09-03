@@ -1,0 +1,40 @@
+# 📊 Sales Prediction using Python
+
+This project predicts future sales based on advertising spend across **TV, Radio, and Newspaper** channels.  
+The goal is to help businesses optimize their marketing strategies by understanding how advertising spend impacts sales.
+
+---
+
+## 🚀 Features
+- Data preprocessing (cleaning, transformation, feature selection)
+- Regression model to forecast sales
+- Evaluation with MAE, MSE, RMSE, R²
+- Actionable insights for business decision-making
+
+---
+
+## 📂 Dataset
+The dataset contains:
+- TV Advertising Spend
+- Radio Advertising Spend
+- Newspaper Advertising Spend
+- Sales (Target variable)
+
+---
+
+## ⚙️ Workflow
+1. Load and preprocess the dataset
+2. Train a Random Forest Regressor
+3. Save the trained model (`model.pkl`)
+4. Predict sales for new advertising spend values
+
+---
+
+## 🛠️ Tech Stack
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- Joblib (for saving the model)
+
+---
+
