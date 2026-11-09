@@ -1,14 +1,9 @@
 # src/predict.py
 import joblib
 import pandas as pd
-import os
 
-# Load model
-model_path = os.path.join("models", "model.pkl")
-if not os.path.exists(model_path):
-    raise FileNotFoundError("Trained model not found. Please run train.py first.")
+from src.train import MODEL_PATH
 
-model = joblib.load(model_path)
 
 def predict_sales(ad_spend: dict):
     """
@@ -18,7 +13,12 @@ def predict_sales(ad_spend: dict):
         "Newspaper": 69.2
     }
     """
-    df = pd.DataFrame([ad_spend])
+    # Load the model when needed, so the app still opens before a model has been trained
+    if not MODEL_PATH.exists():
+        raise FileNotFoundError("Trained model not found. Run: python -m src.train")
+    model = joblib.load(MODEL_PATH)
+
+    df = pd.DataFrame([ad_spend])[["TV", "Radio", "Newspaper"]]
     prediction = model.predict(df)[0]
     return round(prediction, 2)
 
