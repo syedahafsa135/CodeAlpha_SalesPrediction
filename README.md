@@ -29,15 +29,19 @@ A marketing team has a fixed budget to split across TV, radio and newspaper. **H
 
 ## Key findings
 
-<!-- TODO: fill in from the output of `python -m src.evaluate`. Use the printed numbers only. -->
+Scores on the 40 test markets (output of `python -m src.evaluate`):
 
 | Metric (test set) | Value |
 |---|---|
-| MAE | _run `python -m src.evaluate`_ |
-| RMSE | _run `python -m src.evaluate`_ |
-| R² | _run `python -m src.evaluate`_ |
+| MAE | 0.62 |
+| MSE | 0.59 |
+| RMSE | 0.77 |
+| R² | 0.981 |
 
-- **Most important channel:** _see the feature importance printed by `src.evaluate`_
+- **The model is accurate on unseen markets.** It explains 98.1% of the variation in sales.
+- **TV matters most and newspaper barely at all.** Feature importance is TV 0.625, Radio 0.362, Newspaper 0.013.
+- **The raw data agrees.** Sales rise clearly with TV spend and more loosely with radio spend, with no clear pattern for newspaper.
+- **Recommendation:** prioritise TV, then radio. Newspaper is the first candidate for cuts. These are relationships rather than proof of cause, so test any budget shift in a few markets first.
 
 ![Feature importance by channel](images/feature-importance.png)
 
